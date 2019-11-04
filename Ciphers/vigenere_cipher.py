@@ -31,12 +31,12 @@ with open(vigenere_table_file) as vigenere_file_data:
 # Read plaintext line by line
 key_index = 0 # Represents current index/position in the key
 for line in file_input:
-	for char.lower() in line:
+	for char in line:
 		if char.isalpha(): # True if char is a letter (i.e. no special characters, no spaces, etc.)
 			key_index %= len(key) # Keep index in bounds of the length of the key
 			row = ord(key[key_index]) - 65 # ord() function gets ascii value. row represents row in matrix
-			col = (ord(char) - 97) # Get the column in our matrix
-			result += vigenere_matrix[row][col] # Get the encrypted character from the matrix
+			col = (ord(char.lower()) - 97) # Get the column in our matrix
+			result += vigenere_matrix[row][col].lower() # Get the encrypted character from the matrix
 			key_index += 1 # Increment our index.
 
 # Write result to our output file
