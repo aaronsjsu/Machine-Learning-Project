@@ -7,7 +7,7 @@ http://practicalcryptography.com/ciphers/columnar-transposition-cipher/
 for a brief description. The result is then written to a specified txt file.
 
 __author__ = "Aaron Smith"
-__date__ = "11/3/2019"
+__date__ = "11/4/2019"
 """
 
 import random
