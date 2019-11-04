@@ -5,7 +5,7 @@ from a specified txt file, filtering the characters to be lowercase letters
 random amount in the range of 1-25. It writes the result to a specified txt file.
 
 __author__ = "Aaron Smith"
-__date__ = "10/13/2019"
+__date__ = "11/3/2019"
 """
 
 import random
