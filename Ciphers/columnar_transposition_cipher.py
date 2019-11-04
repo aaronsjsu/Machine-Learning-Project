@@ -24,17 +24,14 @@ file_output = open(output_file_name, "w")
 
 
 # First, let's get a string of the specified length from our input file
-while len(plaintext) != text_length:
-    c = file_input.read(1).lower() # Reads 1 character at a time
-    # c will already be lowercase
-    ascii_code = ord(c) # Returns the ascii code of the character c
-    # First eliminate spaces
-    if (c == ' '):
-        c = ''
-    # Then eliminate non-letter characters
-    elif (ascii_code < 97 or ascii_code > 122):
-        c = ''
-    plaintext += c # Add our character to our result
+for line in file_input:
+	for char in line:
+		if char.isalpha(): # True if char is a letter (i.e. no special characters, no spaces, etc.)
+			plaintext += char.lower()
+			if (len(plaintext) == text_length):
+				break
+	if (len(plaintext) == text_length):
+		break
 
 # Now let's encrypt result
 # First initialize our matrix columns by using a list
@@ -49,7 +46,7 @@ columns_rearranged = []
 for c in key:
     columns_rearranged.append(columns[c - 1])
 # Then append characters to the result by going through our columns
-for i in range(text_length / number_of_columns):
+for i in range(int(text_length / number_of_columns)):
     for j in range(number_of_columns):
         result += columns_rearranged[j][i]
 
