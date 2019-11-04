@@ -1,10 +1,15 @@
 """
-This file is used to implement a columnar transposition cipher. It works by
-reading input from a specified txt file, filtering the characters to be
-lowercase letters (discarding non-letter characters), and then encrypting
-the characters using the columnar transposition cipher. See
-http://practicalcryptography.com/ciphers/columnar-transposition-cipher/
-for a brief description. The result is then written to a specified txt file.
+This file is used to implement a columnar transposition cipher. It works by reading input
+from a specified txt file at a random line, filtering the characters to be lowercase
+letters (discarding non-letter characters), and then encrypting the characters using the
+columnar transposition cipher. See
+http://practicalcryptography.com/ciphers/columnar-transposition-cipher/ for a brief
+description of the cipher. Can be editted to use a random key, or a default key.
+
+It writes the result to a txt file at the specified location. Uses multiprocessing
+to run multiple instances of the cipher in parallel. That way large amounts of data
+can be processed at a time, outputting to multiple files in order to get large
+variations in the data.
 
 __author__ = "Aaron Smith"
 __date__ = "11/4/2019"
