@@ -42,7 +42,7 @@ for i in range(iters):
 					break
 
 	# Write result to our output file
-	file_output.write(result + "\n")
+	file_output.write(result + " key: " + str(key) + ", reading from line " + str(random_line) + "\n")
 	file_input.close()
 
 file_output.close()
