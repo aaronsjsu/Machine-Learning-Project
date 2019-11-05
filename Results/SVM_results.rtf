@@ -1,0 +1,541 @@
+Through initial experimentation, the poly kernel seems to perform the best, both in speed, and in accuracy.
+The linear kernel seemed to do well classifying the columnar transposition cipher, but didn't do well telling
+the difference between shift and vigenere. The linear kernel also runs much slower for some reason. The poly
+kernel performed well.
+
+
+Text length: 1000
+Number of samples: 5000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 1.0
+svm_model_vigenere_vs_rest Accuracy: 1.0
+svm_model_shift_vs_vigenere Accuracy: 1.0
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 500
+Number of samples: 5000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 1.0
+svm_model_shift_vs_vigenere Accuracy: 1.0
+svm_model_shift_vs_rest Accuracy: 0.9998
+Percentage correctly classified as shift: 0.5
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 300
+Number of samples: 5000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 0.9998
+svm_model_vigenere_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.9998
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 200
+Number of samples: 5000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.9998
+svm_model_shift_vs_rest Accuracy: 0.9998
+svm_model_shift_vs_vigenere Accuracy: 1.0
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 100
+Number of samples: 5000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 0.9998
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.9954
+svm_model_shift_vs_rest Accuracy: 0.9978
+svm_model_shift_vs_vigenere Accuracy: 0.9968
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 0.97
+
+
+Text length: 1000
+Number of samples: 1000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 1.0
+svm_model_shift_vs_vigenere Accuracy: 1.0
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 500
+Number of samples: 1000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 1.0
+svm_model_shift_vs_rest Accuracy: 1.0
+svm_model_shift_vs_vigenere Accuracy: 1.0
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 300
+Number of samples: 1000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.999
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 1.0
+svm_model_shift_vs_vigenere Accuracy: 0.999
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 200
+Number of samples: 1000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 1.0
+svm_model_shift_vs_vigenere Accuracy: 0.999
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 100
+Number of samples: 1000
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 0.999
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.99
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 0.994
+svm_model_shift_vs_vigenere Accuracy: 0.997
+Percentage correctly classified as shift: 1.0
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 1000
+Number of samples: 100
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.88
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 1.0
+svm_model_shift_vs_vigenere Accuracy: 1.0
+Percentage correctly classified as shift: 0.99
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 500
+Number of samples: 100
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.91
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.98
+svm_model_shift_vs_rest Accuracy: 0.97
+Percentage correctly classified as shift: 0.98
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 0.99
+
+
+Text length: 300
+Number of samples: 100
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.91
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 0.91
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.92
+Percentage correctly classified as shift: 0.89
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 200
+Number of samples: 100
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+svm_model_vigenere_vs_rest Accuracy: 0.88
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 0.95
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.95
+Percentage correctly classified as shift: 0.89
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 100
+Number of samples: 100
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.92
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 0.91
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.9
+Percentage correctly classified as shift: 0.81
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 0.99
+
+
+Text length: 1000
+Number of samples: 20
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+svm_model_vigenere_vs_rest Accuracy: 0.85
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 0.6
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.6
+Percentage correctly classified as shift: 0.3
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 500
+Number of samples: 20
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.8
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.6
+svm_model_shift_vs_rest Accuracy: 0.6
+Percentage correctly classified as shift: 0.31
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 300
+Number of samples: 20
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.8
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.7
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 0.7
+Percentage correctly classified as shift: 0.36
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 1.0
+
+
+Text length: 200
+Number of samples: 20
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.8
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.65
+svm_model_shift_vs_rest Accuracy: 0.65
+Percentage correctly classified as shift: 0.43
+Percentage correctly classified as columnar: 1.0
+Percentage correctly classified as vigenere: 0.99
+
+
+Text length: 100
+Number of samples: 20
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_vigenere_vs_rest Accuracy: 0.8
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_columnar_vs_rest Accuracy: 1.0
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_rest Accuracy: 0.6
+SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='auto', kernel='poly',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+svm_model_shift_vs_vigenere Accuracy: 0.55
+Percentage correctly classified as shift: 0.42
+Percentage correctly classified as columnar: 0.97
+Percentage correctly classified as vigenere: 0.92

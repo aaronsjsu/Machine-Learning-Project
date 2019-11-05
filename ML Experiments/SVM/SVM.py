@@ -1,5 +1,5 @@
 """
-Trains an SVM based on our cipher data from ../../Data using sklearn. Attempts to
+Trains an SVM based on our cipher data from ../../Data using sklearn. Then attempts to
 classify a cipher based on trained SVM's.
 
 __author__ = "Aaron Smith"
@@ -11,9 +11,12 @@ from multiprocessing import Process, Manager
 import numpy as np
 import random
 
-text_length = 1000
-number_of_samples = 5000 # i.e. number of vectors (must be divisible by 2 * len(positive_cipher_file_names))
+text_length = 100
+number_of_samples = 1000 # i.e. number of vectors (must be divisible by 2 * len(positive_cipher_file_names))
 number_of_data_points = 26 # i.e. height of vector
+
+print("Text length: " + str(text_length))
+print("Number of samples: " + str(number_of_samples))
 
 def get_data(text_length, number_of_samples, number_of_data_points, positive_cipher_file_names, negative_cipher_file_name):
     """
@@ -156,6 +159,14 @@ svm_model_shift_vs_vigenere = svm_models["svm_model_shift_vs_vigenere"]
 # Now that we have our SVM models, let's see if we can use them to correctly tell which cipher each ciphertext
 # corresponds with.
 def determine_cipher(ciphertext):
+    """
+    Function that uses our trained SVM models to attempt to classify the ciphertext as
+    belonging to a shift cipher (returns 2), vigenere cipher (returns 1), or a
+    columnar transposition cipher (returns 0).
+
+    Args:
+        ciphertext: The ciphertext to analyze
+    """
     # Put ciphertext into a list of character counts.
     test_matrix = [0 for i in range(number_of_data_points)]
     for char in ciphertext:
@@ -176,6 +187,7 @@ def determine_cipher(ciphertext):
                 return 2
         else:
             return 2
+
 
 count = 100
 # Test shift cipher detection
@@ -210,3 +222,11 @@ for i in range(count):
     if (determine_cipher(file_input.readline()[:text_length]) == 1):
         count_correct += 1
 print("Percentage correctly classified as vigenere: " + str(count_correct / count))
+
+
+# This is testing for something else
+"""
+file_input = open("../ciphers_to_test.txt", "r")
+for file in file_input:
+    print(determine_cipher(file[5:105].rstrip()))
+"""
