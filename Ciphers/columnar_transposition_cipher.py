@@ -12,7 +12,7 @@ can be processed at a time, outputting to multiple files in order to get large
 variations in the data.
 
 __author__ = "Aaron Smith"
-__date__ = "11/4/2019"
+__date__ = "11/9/2019"
 """
 
 import random
@@ -42,7 +42,7 @@ def make_file(length):
 
         # Start our reading from a relatively random line from within the input file.
         random_line = random.randint(1, 45000)
-    	#print("Reading from file at line " + str(random_line))
+        #print("Reading from file at line " + str(random_line))
         for i in range(random_line):
             file_input.readline()
         # First, let's get a string of the specified length from our input file
