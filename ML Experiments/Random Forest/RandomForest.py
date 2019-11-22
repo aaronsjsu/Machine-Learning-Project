@@ -60,7 +60,7 @@ classifications = []
 for j in range(len(inputs)):
     classifications += [j for i in range(samples_per_file)]
 
-# Now build our k-nearest neighbor model, and test the accuracy of the scoring set.
+# Now build our random forest model, and test the accuracy of the scoring set.
 model = RandomForestClassifier()
 model.fit(training_data, classifications)
 print(model.score(scoring_data, classifications))
