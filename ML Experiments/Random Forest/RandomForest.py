@@ -61,6 +61,6 @@ for j in range(len(inputs)):
     classifications += [j for i in range(samples_per_file)]
 
 # Now build our random forest model, and test the accuracy of the scoring set.
-model = RandomForestClassifier()
+model = RandomForestClassifier(n_estimators=100)
 model.fit(training_data, classifications)
 print(model.score(scoring_data, classifications))
