@@ -3,7 +3,7 @@ Algorithm that uses our cipher data from ../../Data in order to classify a ciphe
 to belong to a particular cipher. Creates a voting classifier, which is a classifier that
 uses a set of classifiers to make classifications. Each classifier gets a 'vote', and the
 classification with the most votes win. Classifier votes can be weighted. The classifiers
-considered below include K nearest neighbor, random forest, and multi-layer perceptron.
+considered below include K nearest neighbor, random forest, multi-layer perceptron, and gradient boosting.
 
 __author__ = "Aaron Smith"
 __date__ = "11/20/2019"
@@ -13,6 +13,7 @@ from sklearn.ensemble import VotingClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 
 text_length = 1000 # How many characters in each ciphertext sample (options include 100, 200, 300, 500, 1000)
 number_of_samples = 25000 # Total number of ciphertext samples to consider
@@ -67,14 +68,16 @@ for j in range(len(inputs)):
     classifications += [j for i in range(samples_per_file)]
 
 
-# Now build our  models, and test the accuracy of the scoring set.
+# Now build our models, and test the accuracy of the scoring set.
 knn_model = KNeighborsClassifier(n_neighbors=1, algorithm = "brute")
 knn_model.fit(training_data, classifications)
-rf_model = RandomForestClassifier()
+rf_model = RandomForestClassifier(n_estimators=100)
 rf_model.fit(training_data, classifications)
 mlp_model = MLPClassifier()
 mlp_model.fit(training_data, classifications)
+boost_model = GradientBoostingClassifier()
+boost_model.fit(training_data, classifications)
 
-model = VotingClassifier(estimators=[("knn", knn_model), ("rf", rf_model), ("mlp", mlp_model)], voting="soft", weights=[1, 2, 5])
+model = VotingClassifier(estimators=[("knn", knn_model), ("rf", rf_model), ("mlp", mlp_model), ('boost', boost_model)], voting="soft", weights=[1, 2, 5, 1])
 model.fit(training_data, classifications)
 print(model.score(scoring_data, classifications))
