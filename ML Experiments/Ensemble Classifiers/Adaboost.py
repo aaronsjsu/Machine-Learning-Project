@@ -1,15 +1,14 @@
 """
-More work to do...
+Algorithm that uses our cipher data from ../../Data in order to classify a ciphertext
+to belong to a particular cipher. Uses AdaBoostClassifier with RandomForestClassifier
+as the base_estimator. 
 
 __author__ = "Aaron Smith"
-__date__ = "11/20/2019"
+__date__ = "11/24/2019"
 """
-from sklearn import svm
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.neural_network import MLPClassifier
+
+from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import GradientBoostingClassifier
 
 text_length = 1000 # How many characters in each ciphertext sample (options include 100, 200, 300, 500, 1000)
 number_of_samples = 2000 # Total number of ciphertext samples to consider
@@ -63,17 +62,14 @@ classifications = []
 for j in range(len(inputs)):
     classifications += [j for i in range(samples_per_file)]
 
-# Now build our models, and test the accuracy of the scoring set.
-"""
-knn_model = KNeighborsClassifier(n_neighbors=1, algorithm = "brute")
-knn_model.fit(training_data, classifications)
-rf_model = RandomForestClassifier()
-rf_model.fit(training_data, classifications)
-mlp_model = MLPClassifier()
-mlp_model.fit(training_data, classifications)
-"""
-#model = AdaBoostClassifier()
-model = GradientBoostingClassifier() # GradientBoostingClassifier bettern than AdaBoostClassifier?
-#model = svm.SVC(kernel="poly", gamma="auto")
+
+# Sci-kit Learn's AdaBoostClassifier doesn't normally use more than one classifier, instead you specify the classifier
+# through the parameter base_estimator. RandomForestClassifier is a good base estimator. It would seem like a good idea
+# to try a bunch of different classifiers... a trick is to use a VotingClassifier which contains multiple classifiers,
+# and then passing that on to the AdaBoostClassifier as its base_estimator. However, many classifiers in the sci-kit
+# learn package will not work (because they don't support sample_weight), so things like KNN, MLP, and others won't work.
+# SVM will work but doesn't really add any benefit.
+#voting_classifier = VotingClassifier(estimators=[("rf", RandomForestClassifier(n_estimators = 100)), ('dt', DecisionTreeClassifier())], voting="soft")
+model = AdaBoostClassifier(base_estimator = RandomForestClassifier(n_estimators = 100))
 model.fit(training_data, classifications)
 print(model.score(scoring_data, classifications))
