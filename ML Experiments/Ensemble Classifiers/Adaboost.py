@@ -1,7 +1,7 @@
 """
 Algorithm that uses our cipher data from ../../Data in order to classify a ciphertext
 to belong to a particular cipher. Uses AdaBoostClassifier with RandomForestClassifier
-as the base_estimator. 
+as the base_estimator.
 
 __author__ = "Aaron Smith"
 __date__ = "11/24/2019"
@@ -63,11 +63,11 @@ for j in range(len(inputs)):
     classifications += [j for i in range(samples_per_file)]
 
 
-# Sci-kit Learn's AdaBoostClassifier doesn't normally use more than one classifier, instead you specify the classifier
+# Scikit-Learn's AdaBoostClassifier doesn't normally use more than one classifier, instead you specify the classifier
 # through the parameter base_estimator. RandomForestClassifier is a good base estimator. It would seem like a good idea
 # to try a bunch of different classifiers... a trick is to use a VotingClassifier which contains multiple classifiers,
-# and then passing that on to the AdaBoostClassifier as its base_estimator. However, many classifiers in the sci-kit
-# learn package will not work (because they don't support sample_weight), so things like KNN, MLP, and others won't work.
+# and then passing that on to the AdaBoostClassifier as its base_estimator. However, many classifiers in the scikit-learn
+# package will not work (because they don't support sample_weight), so things like KNN, MLP, and others won't work.
 # SVM will work but doesn't really add any benefit.
 #voting_classifier = VotingClassifier(estimators=[("rf", RandomForestClassifier(n_estimators = 100)), ('dt', DecisionTreeClassifier())], voting="soft")
 model = AdaBoostClassifier(base_estimator = RandomForestClassifier(n_estimators = 100))
