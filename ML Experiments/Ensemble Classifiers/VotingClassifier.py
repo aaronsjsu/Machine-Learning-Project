@@ -6,14 +6,12 @@ classification with the most votes win. Classifier votes can be weighted. The cl
 considered below include K nearest neighbor, random forest, multi-layer perceptron, and gradient boosting.
 
 __author__ = "Aaron Smith"
-__date__ = "11/20/2019"
+__date__ = "11/25/2019"
 """
 
-from sklearn.ensemble import VotingClassifier
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import VotingClassifier, RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
-from sklearn.ensemble import GradientBoostingClassifier
 
 text_length = 1000 # How many characters in each ciphertext sample (options include 100, 200, 300, 500, 1000)
 number_of_samples = 25000 # Total number of ciphertext samples to consider
@@ -70,14 +68,12 @@ for j in range(len(inputs)):
 
 # Now build our models, and test the accuracy of the scoring set.
 knn_model = KNeighborsClassifier(n_neighbors=1, algorithm = "brute")
-knn_model.fit(training_data, classifications)
 rf_model = RandomForestClassifier(n_estimators=100)
-rf_model.fit(training_data, classifications)
 mlp_model = MLPClassifier()
-mlp_model.fit(training_data, classifications)
 boost_model = GradientBoostingClassifier()
-boost_model.fit(training_data, classifications)
+adaboost_model = AdaBoostClassifier(base_estimator = RandomForestClassifier(n_estimators = 100))
 
-model = VotingClassifier(estimators=[("knn", knn_model), ("rf", rf_model), ("mlp", mlp_model), ('boost', boost_model)], voting="soft", weights=[1, 2, 5, 1])
+# Can play around more with weights (and different voting classifiers) to see if it yields better results
+model = VotingClassifier(estimators=[("knn", knn_model), ("rf", rf_model), ("mlp", mlp_model), ("gradient_boost", boost_model), ("adaboost", adaboost_model)], voting="soft", weights=[1, 2, 5, 1, 3])
 model.fit(training_data, classifications)
 print(model.score(scoring_data, classifications))
