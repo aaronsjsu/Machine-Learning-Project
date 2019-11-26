@@ -9,7 +9,7 @@ doesn't. In order to build all these SVM's in a timely manner, the work is split
 processes (and I admit, the code for this section looks a little ugly).
 
 __author__ = "Aaron Smith"
-__date__ = "11/24/2019"
+__date__ = "11/25/2019"
 """
 
 from sklearn import svm
@@ -18,7 +18,7 @@ import numpy as np
 import random
 
 text_length = 1000
-number_of_samples = 1000 # i.e. number of vectors (must be divisible by 1 + len(positive_cipher_file_names))
+number_of_samples = 5000 # i.e. number of vectors (must be divisible by 1 + len(positive_cipher_file_names))
 number_of_data_points = 26 # i.e. height of vector
 
 print("Text length: " + str(text_length))
@@ -61,18 +61,6 @@ def get_data(text_length, number_of_samples, number_of_data_points, positive_cip
         while (j != (number_of_samples * positive_ratio) / len(positive_cipher_inputs)):
             line = file_input.readline()
             ciphertext = line[:text_length]
-            """ # For testing something else... instead of character counts, uses digraph counts
-            prevChar = 0
-            for char in ciphertext:
-                if prevChar != 0:
-                    if ord(char) - 97 == 0:
-                        training_set[i][(ord(prevChar) - 97)] += 1
-                    elif ord(prevChar) - 97 == 0:
-                        training_set[i][(ord(char) - 97)] += 1
-                    else:
-                        training_set[i][(ord(char) - 97) * (ord(prevChar) - 97)] += 1
-                prevChar = char
-            """
             for char in ciphertext:
                 training_set[i][ord(char) - 97] += 1
             i += 1
@@ -81,18 +69,6 @@ def get_data(text_length, number_of_samples, number_of_data_points, positive_cip
     while (i != number_of_samples):
         line = negative_cipher_input.readline()
         ciphertext = line[:text_length]
-        """
-        prevChar = 0
-        for char in ciphertext:
-            if prevChar != 0:
-                if ord(char) - 97 == 0:
-                    training_set[i][(ord(prevChar) - 97)] += 1
-                elif ord(prevChar) - 97 == 0:
-                    training_set[i][(ord(char) - 97)] += 1
-                else:
-                    training_set[i][(ord(char) - 97) * (ord(prevChar) - 97)] += 1
-            prevChar = char
-        """
         for char in ciphertext:
             training_set[i][ord(char) - 97] += 1
         i += 1
@@ -103,18 +79,6 @@ def get_data(text_length, number_of_samples, number_of_data_points, positive_cip
         while (j != (number_of_samples * positive_ratio) / len(positive_cipher_inputs)):
             line = file_input.readline()
             ciphertext = line[:text_length]
-            """
-            prevChar = 0
-            for char in ciphertext:
-                if prevChar != 0:
-                    if ord(char) - 97 == 0:
-                        scoring_set[i][(ord(prevChar) - 97)] += 1
-                    elif ord(prevChar) - 97 == 0:
-                        scoring_set[i][(ord(char) - 97)] += 1
-                    else:
-                        scoring_set[i][(ord(char) - 97) * (ord(prevChar) - 97)] += 1
-                prevChar = char
-            """
             for char in ciphertext:
                 scoring_set[i][ord(char) - 97] += 1
             i += 1
@@ -123,18 +87,6 @@ def get_data(text_length, number_of_samples, number_of_data_points, positive_cip
     while (i != number_of_samples):
         line = negative_cipher_input.readline()
         ciphertext = line[:text_length]
-        """
-        prevChar = 0
-        for char in ciphertext:
-            if prevChar != 0:
-                if ord(char) - 97 == 0:
-                    scoring_set[i][(ord(prevChar) - 97)] += 1
-                elif ord(prevChar) - 97 == 0:
-                    scoring_set[i][(ord(char) - 97)] += 1
-                else:
-                    scoring_set[i][(ord(char) - 97) * (ord(prevChar) - 97)] += 1
-            prevChar = char
-        """
         for char in ciphertext:
             scoring_set[i][ord(char) - 97] += 1
         i += 1
