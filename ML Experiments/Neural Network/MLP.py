@@ -1,16 +1,18 @@
 """
 Builds a multi-layer perceptron classifier using our cipher data from ../../Data in order to classify
-a ciphertext to belong to a particular cipher. Uses sklearn MLPClassifier.
+a ciphertext to belong to a particular cipher. Uses sklearn MLPClassifier. It's currently commented
+out, but it's possible to train a model using different ciphertext statistics... below is code that
+will allow the model to be trained on monogram (default), bigram, trigram, or all three, statistics.
 
 __author__ = "Aaron Smith"
-__date__ = "11/19/2019"
+__date__ = "11/25/2019"
 """
 
 from sklearn.neural_network import MLPClassifier
 
 text_length = 1000 # How many characters in each ciphertext sample (options include 100, 200, 300, 500, 1000)
-number_of_samples = 25000 # Total number of ciphertext samples to consider
-number_of_data_points = 26 # Size of each vector representing each sample
+number_of_samples = 5000 # Total number of ciphertext samples to consider
+number_of_data_points = 26# + (26*26) + (26*26*26) # Size of each vector representing each sample
 
 file_names = [] # To keep track of all our data files
 file_names.append("../../Data/Columnar Transposition Cipher/text_length_" + str(text_length) + ".txt")
@@ -37,8 +39,18 @@ for file_input in inputs:
     while (j != samples_per_file):
         line = file_input.readline()
         ciphertext = line[:text_length]
+        prevChar = 0
+        middleChar = 0
         for char in ciphertext:
             training_data[i][ord(char) - 97] += 1
+            """
+            if middleChar != 0:
+                training_data[i][((ord(middleChar) - 96) * (ord(char) - 96)) + (26) - 1] += 1
+                if prevChar != 0:
+                    training_data[i][((ord(prevChar) - 96) * (ord(middleChar) - 96) * (ord(char) - 96)) + (26) + (26*26) + - 1] += 1
+            prevChar = middleChar
+            middleChar = char
+            """
         i += 1
         j += 1
 i = 0
@@ -48,8 +60,18 @@ for file_input in inputs:
     while (j != samples_per_file):
         line = file_input.readline()
         ciphertext = line[:text_length]
+        prevChar = 0
+        middleChar = 0
         for char in ciphertext:
             scoring_data[i][ord(char) - 97] += 1
+            """
+            if middleChar != 0:
+                scoring_data[i][((ord(middleChar) - 96) * (ord(char) - 96)) + (26) + - 1] += 1
+                if prevChar != 0:
+                    scoring_data[i][((ord(prevChar) - 96) * (ord(middleChar) - 96) * (ord(char) - 96)) + (26) + (26*26) +  - 1] += 1
+            prevChar = middleChar
+            middleChar = char
+            """
         i += 1
         j += 1
 
